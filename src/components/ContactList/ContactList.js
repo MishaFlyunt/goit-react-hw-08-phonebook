@@ -1,6 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/operations';
 
+import { deleteContact } from '../../redux/operations';
+import {
+  // selectContacts,
+  // selectFilter,
+  selectVisibleContacts,
+} from '../../redux/selectors';
 import {
   ContactListStyled,
   ContactItemStyled,
@@ -8,27 +13,19 @@ import {
 } from './ContactList.styled';
 
 export const ContactList = () => {
-  const contacts = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.filter);
+  const contacts = useSelector(selectVisibleContacts);
+  // const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
-  // const getVisibleContacts = () => {
-  //   const lowerCaseFilter = filter.toLowerCase();
+  console.log(contacts);
+  // console.log(selectVisibleContacts);
+  // const getContacts = contacts.filter(({ name }) =>
+  //   name.toLowerCase().trim().includes(filter.toLowerCase())
+  // );
 
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().trim().includes(lowerCaseFilter)
-  //   );
-  // };
-  
- console.log(contacts);
-  const getContacts = contacts.filter(({ name }) =>
-    name.toLowerCase().trim().includes(filter.toLowerCase())
-  );
-  // const getContact = getVisibleContacts();
- 
   return (
     <ContactListStyled>
-      {getContacts.map(({ id, name, number }) => (
+      {contacts.map(({ id, name, number }) => (
         <ContactItemStyled key={id}>
           <p>
             {name}: {number}

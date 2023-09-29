@@ -2,6 +2,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import toast from 'react-hot-toast';
+
+import { selectContacts } from '../../redux/selectors';
 import { addContact } from '../../redux/operations';
 import {
   FormStyled,
@@ -28,9 +30,9 @@ const schema = Yup.object().shape({
 });
 
 export const ContactForm = () => {
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
-  console.log(contacts);
+  // console.log(contacts);
   const handleSubmit = (values, actions) => {
     if (
       contacts.find(
