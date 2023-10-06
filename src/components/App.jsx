@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
-import { fetchContact } from '../redux/operations';
+import { fetchContact } from '../redux/contacts/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
