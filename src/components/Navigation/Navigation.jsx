@@ -1,20 +1,16 @@
-import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks';
-import css from './Navigation.module.css';
+import { AiOutlineHome } from 'react-icons/ai';
+import { Link, Nav } from './Navigation.style';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <NavLink className={css.link} to="/">
-        Home
-      </NavLink>
-      {isLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
-          Contacts
-        </NavLink>
-      )}
-    </nav>
+    <Nav>
+      <Link to="/">
+        <AiOutlineHome size={25} />
+      </Link>
+      {isLoggedIn && <Link to="/contacts">Contacts</Link>}
+    </Nav>
   );
 };
