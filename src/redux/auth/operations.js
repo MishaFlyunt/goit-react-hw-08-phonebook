@@ -25,6 +25,7 @@ export const register = createAsyncThunk(
       const response = await axios.post('/users/signup', credentials);
       // Після успішної реєстрації додайте маркер до заголовка HTTP
       setAuthHeader(response.data.token);
+      console.log(credentials);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
