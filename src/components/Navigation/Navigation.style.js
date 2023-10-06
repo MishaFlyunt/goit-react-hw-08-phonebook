@@ -10,10 +10,11 @@ export const Link = styled(NavLink)`
   align-items: center;
 
   &.active {
-    color: orange;
-    background-color: rgb(220, 219, 212);
-    border: 1px solid black;
-    border-radius: 10px;
+    color: rgb(200, 203, 204);
+    border: 1px solid rgb(97, 229, 220);
+    background-color: rgb(22, 106, 124);
+
+    border-radius: 8px;
   }
 `;
 

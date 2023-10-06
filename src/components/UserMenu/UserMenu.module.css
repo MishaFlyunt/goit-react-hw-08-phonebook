@@ -2,8 +2,15 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  color: rgb(5, 78, 54);
 }
 
 .username {
   font-weight: 700;
+}
+
+.button{
+  border: none;
+  background-color: white;
+  color:rgb(10, 49, 75);
 }
