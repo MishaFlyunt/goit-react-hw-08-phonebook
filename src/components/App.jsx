@@ -1,32 +1,60 @@
-import { GlobalStyle, Container } from './GlobalStyle';
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Toaster } from 'react-hot-toast';
+import { useEffect, lazy } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
-import { fetchContact } from '../redux/contacts/operations';
+// import { Toaster } from 'react-hot-toast';
+// import { GlobalStyle, Container } from './GlobalStyle';
+import { Layout } from './Layout';
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
+import { refreshUser } from 'redux/auth/operations';
+import { useAuth } from 'hooks';
+
+const HomePage = lazy(() => import('../pages/Home'));
+const RegisterPage = lazy(() => import('../pages/Register'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const Contacts = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.contacts.isLoading);
-  const error = useSelector(state => state.contacts.error);
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContact());
+    dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <Container>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
-      {isLoading && !error && <b>Request in progress...</b>}
-      <Toaster position="top-center" reverseOrder={false} />
-      <GlobalStyle />
-    </Container>
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
+    // <Container>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<Contacts />} />
+          }
+        />
+      </Route>
+    </Routes>
+    // <Toaster position="top-center" reverseOrder={false} />
+    // <GlobalStyle />
+    // </Container>
   );
 };
