@@ -3,8 +3,8 @@ import { Form, Field, ErrorMessage } from 'formik';
 
 export const FormStyled = styled(Form)`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column;
+  justify-content: center; */
   gap: 10px;
   padding: 5px 0 18px;
 `;
@@ -14,7 +14,7 @@ export const LabelStylet = styled.label`
 `;
 
 export const FieldStyled = styled(Field)`
-  width: 200px;
+  width: 150px;
 `;
 
 export const ButtonForm = styled.button`

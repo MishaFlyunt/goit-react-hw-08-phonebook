@@ -8,18 +8,17 @@ export const Link = styled(NavLink)`
   padding: 6px;
   display: flex;
   align-items: center;
+  margin-left: 16px;
+  border: 1px solid rgb(31, 51, 50);
+  border-radius: 8px;
 
   &.active {
-    color: rgb(200, 203, 204);
-    border: 1px solid rgb(97, 229, 220);
+    color: rgb(255, 255, 255);
     background-color: rgb(22, 106, 124);
-
-    border-radius: 8px;
   }
 `;
 
 export const Nav = styled.nav`
   display: flex;
-  gap: 60px;
-  /* align-items: center; */
+  gap: 15px;
 `;
