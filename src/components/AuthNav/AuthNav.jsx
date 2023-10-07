@@ -1,6 +1,9 @@
-import {  Link } from './AuthNav.style';
+import { Link } from './AuthNav.style';
+// import { useToggle } from '../../hooks/useToggle';
 
 export const AuthNav = () => {
+  // const { openModal } = useToggle();
+
   return (
     <div>
       <Link to="/register">Register</Link>
@@ -8,3 +11,5 @@ export const AuthNav = () => {
     </div>
   );
 };
+
+// onClick = { openModal };
