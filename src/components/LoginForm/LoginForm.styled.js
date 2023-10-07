@@ -18,7 +18,7 @@ export const Form = styled.form`
   gap: 12px;
   background-color: rgb(55, 192, 220);
   width: 400px;
-  height: 320px;
+  height: 255px;
   padding: 20px;
   border-radius: 10px;
 `;
@@ -44,4 +44,5 @@ export const Button = styled.button`
   font-size: 18px;
   color: aliceblue;
 `;
+
 

@@ -64,7 +64,7 @@ export const RegisterForm = () => {
     // </Modal>
     <Container>
       <Form onSubmit={handleSubmit} autoComplete="off">
-        <Title>Register</Title>
+        <Title>Registration form</Title>
         <Label>
           Username
           <Input type="text" name="name" />
