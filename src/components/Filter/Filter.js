@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { LabelStyled, FilterStyled } from './Filter.styled';
+import { LabelStyled, FilterStyled, Input } from './Filter.styled';
 import { selectFilter } from '../../redux/contacts/selectors';
 import { filterContact } from '../../redux/contacts/filtersSlice';
 
@@ -11,8 +11,8 @@ export const Filter = () => {
   return (
     <FilterStyled>
       <LabelStyled>
-        <h3>Find contacts by name</h3>
-        <input
+        <h4>Search by name</h4>
+        <Input
           type="text"
           name="filter"
           value={filter}

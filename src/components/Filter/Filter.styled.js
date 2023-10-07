@@ -9,3 +9,9 @@ export const LabelStyled = styled.label`
 export const FilterStyled = styled.div`
   padding: 10px 0 15px;
 `;
+
+export const Input = styled.input`
+  width: 25%;
+  border-radius: 8px;
+  border: 1px solid rgb(31, 51, 50);
+`;

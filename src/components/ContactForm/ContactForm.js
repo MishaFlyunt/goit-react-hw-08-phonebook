@@ -11,6 +11,7 @@ import {
   FieldStyled,
   ButtonForm,
   ErrorMess,
+  Text,
 } from './Form.styled';
 import * as Yup from 'yup';
 
@@ -62,18 +63,18 @@ export const ContactForm = () => {
     >
       <FormStyled>
         <LabelStylet>
-          <p>Name</p>
+          <Text>Name</Text>
           <FieldStyled type="text" name="name" />
           <ErrorMess name="name" component="div" />
         </LabelStylet>
 
         <LabelStylet>
-          <p>Number</p>
+          <Text>Number</Text>
           <FieldStyled type="tel" name="number" />
           <ErrorMess name="number" component="div" />
         </LabelStylet>
 
-        <ButtonForm type="submit">Add contact</ButtonForm>
+        <ButtonForm type="submit">Create contact</ButtonForm>
       </FormStyled>
     </Formik>
   );
