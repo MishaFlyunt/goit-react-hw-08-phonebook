@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { AiTwotoneDelete } from 'react-icons/ai';
+import { FiEdit } from 'react-icons/fi';
 
 import { deleteContact } from '../../redux/contacts/operations';
 import {
@@ -15,6 +16,7 @@ import {
   Number,
   HeaderLi,
   HeaderName,
+  Edit,
 } from './ContactList.styled';
 
 export const ContactList = () => {
@@ -38,6 +40,9 @@ export const ContactList = () => {
         <ContactItemStyled key={id}>
           <Name>{name}</Name>
           <Number>{number}</Number>
+          <Edit>
+            <FiEdit size={20} />
+          </Edit>
           <ButtonStyled
             type="button"
             onClick={() => {

@@ -15,3 +15,7 @@ export const Input = styled.input`
   border-radius: 8px;
   border: 1px solid rgb(31, 51, 50);
 `;
+
+export const Title = styled.h4`
+  color: rgb(236, 234, 234);
+`;
